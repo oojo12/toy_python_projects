@@ -1,7 +1,7 @@
 version: "3.9"  # optional since v1.27.0
 services:
   base:
-    build: baseDockerfile
+    build: ./docker/baseDockerfile
     image: base
   webserver:
     build: webserverDockerfile
@@ -9,17 +9,17 @@ services:
     ports:
       - "8000:8000"
   smtp:
-    build: smtpDockerfile
+    build: ./docker/smtpDockerfile
     image: smtp
     ports:
     - "8025:8025"
    app:
-     build: appDockerfile
+     build: ./docker/appDockerfile
      image: app
      volumes:
       - logvolume01:/var/log
    monitor:
-     build: monitorDockerfile
+     build: ./docker/monitorDockerfile
      image: monitor
      volumes:
       - logvolume01:/var/log
