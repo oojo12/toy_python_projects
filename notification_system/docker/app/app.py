@@ -15,5 +15,5 @@ while True:
     }
     requests.post(WEBSERVER_URL, message)
     messages_sent += 1
-    if messages == 10:
+    if messages_sent == 10:
         break
