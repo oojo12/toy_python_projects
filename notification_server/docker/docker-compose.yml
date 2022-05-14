@@ -10,7 +10,6 @@ services:
       - "8000:8000"
     volumes:
       - logvolume01:/var/log
-    command: []
   smtp:
     build: smtpDockerfile
     image: smtp
