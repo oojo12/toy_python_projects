@@ -1,0 +1,3 @@
+FROM base
+RUN pip install "uvicorn[standard]" fastapi
+CMD ["uvicorn", "main:app", "--reload"]
