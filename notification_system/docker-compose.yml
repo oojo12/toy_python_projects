@@ -4,24 +4,24 @@ services:
     build: ./docker/baseDockerfile
     image: base
   webserver:
-    build: webserverDockerfile
+    build: ./docker/webserverDockerfile
     image: webserver
     ports:
-      - "8000:8000"
+    - "8000:8000"
   smtp:
     build: ./docker/smtpDockerfile
     image: smtp
     ports:
     - "8025:8025"
-   app:
-     build: ./docker/appDockerfile
-     image: app
-     volumes:
-      - logvolume01:/var/log
-   monitor:
-     build: ./docker/monitorDockerfile
-     image: monitor
-     volumes:
-      - logvolume01:/var/log
+  app:
+   build: ./docker/appDockerfile
+   image: app
+   volumes:
+   - logvolume01:/var/log
+  monitor:
+   build: ./docker/monitorDockerfileP
+   image: monitor
+   volumes:
+    - logvolume01:/var/log
 volumes:
   logvolume01: {}
