@@ -1,0 +1,18 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  base:
+    build: baseDockerfile
+    image: base
+  webserver:
+    build: webserverDockerfile
+    image: webserver
+    ports:
+      - "8000:8000"
+    volumes:
+      - logvolume01:/var/log
+    command: []
+  smtp:
+    build: smtpDockerfile
+    image: smtp
+volumes:
+  logvolume01: {}
