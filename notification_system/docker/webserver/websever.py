@@ -31,18 +31,12 @@ async def error(payload):
     _send_message(message)
 
 @app.get("/warning")
-async def error(payload):
+async def warning(payload):
     message = _format_message(payload)
     _send_message(message)
 
 @app.get("/info")
-async def error(payload):
-    message = _format_message(payload)
-    _send_message(message)
-
-
-@app.get("/critical")
-async def error(payload):
+async def info(payload):
     message = _format_message(payload)
     _send_message(message)
 
