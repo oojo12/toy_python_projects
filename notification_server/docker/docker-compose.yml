@@ -8,10 +8,15 @@ services:
     image: webserver
     ports:
       - "8000:8000"
-    volumes:
-      - logvolume01:/var/log
   smtp:
     build: smtpDockerfile
     image: smtp
+    ports:
+    - "8025:8025"
+   app:
+     build: appDockerfile
+     image: app
+     volumes:
+      - logvolume01:/var/log
 volumes:
   logvolume01: {}
