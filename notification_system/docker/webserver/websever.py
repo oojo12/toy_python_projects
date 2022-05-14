@@ -2,12 +2,12 @@ import os
 from fastapi import FastAPI
 from smtplib import SMTP as Client
 
-HOSTNAME, PORT = os.environ['SMTP_HOSTNAME'], os.environ['SMTP_PORT']
+SMTP_HOSTNAME, SMTP_PORT = os.environ['SMTP_HOSTNAME'], os.environ['SMTP_PORT']
 
 
 app = FastAPI()
 
-client = Client(HOSTNAME, PORT)
+client = Client(SMTP_HOSTNAME, SMTP_PORT)
 
 def _fornat_message(payload):
     message = {}
