@@ -18,5 +18,10 @@ services:
      image: app
      volumes:
       - logvolume01:/var/log
+   monitor:
+     build: monitorDockerfile
+     image: monitor
+     volumes:
+      - logvolume01:/var/log
 volumes:
   logvolume01: {}
