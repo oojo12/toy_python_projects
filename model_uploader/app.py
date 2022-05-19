@@ -19,7 +19,7 @@ if requirements_type is not None and requirements is not None:
     requirements_type =  requirements_type.lower()
     if requirements_type == 'pip':
         st.write('Identified pip requirements file. Commencing installation')
-        reqs = StringIO(model.getvalue().decode("utf-8")).read()
+        reqs = StringIO(requirements.getvalue().decode("utf-8")).read()
         install(reqs, managment_file)
     elif requirements_type == 'conda':
         st.write('Identified conda env file. Commencing write')
