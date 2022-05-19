@@ -2,12 +2,12 @@ import os
 from fastapi import FastAPI
 from smtplib import SMTP as Client
 
-HOSTNAME, PORT = os.environ['SMTP_HOSTNAME'], os.environ['SMTP_PORT']
+SMTP_HOSTNAME, SMTP_PORT = os.environ['SMTP_HOSTNAME'], os.environ['SMTP_PORT']
 
 
 app = FastAPI()
 
-client = Client(HOSTNAME, PORT)
+client = Client(SMTP_HOSTNAME, SMTP_PORT)
 
 def _fornat_message(payload):
     message = {}
@@ -31,18 +31,12 @@ async def error(payload):
     _send_message(message)
 
 @app.get("/warning")
-async def error(payload):
+async def warning(payload):
     message = _format_message(payload)
     _send_message(message)
 
 @app.get("/info")
-async def error(payload):
-    message = _format_message(payload)
-    _send_message(message)
-
-
-@app.get("/critical")
-async def error(payload):
+async def info(payload):
     message = _format_message(payload)
     _send_message(message)
 
