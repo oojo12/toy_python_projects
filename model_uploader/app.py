@@ -8,7 +8,7 @@ def install(managment_file, package_manager='pip'):
 
 # requirements
 requirements_type = st.text_input('Pip or Conda?')
-requirements = st.file_uploader('Upload the requirements_file')
+managment_file = st.file_uploader('Upload the requirements_file')
 
 # models
 checkpoint = st.file_uploader('Upload the model checkpoint')
